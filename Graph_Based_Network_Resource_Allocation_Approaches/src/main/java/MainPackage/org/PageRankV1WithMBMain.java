@@ -15,7 +15,7 @@ public class PageRankV1WithMBMain {
     public static void main(String[] args) {
         System.out.println("The performance of Page Rank and Markov Blanket ----------");
         // Select the test case or the graph; construct the defenders; construct the adjacensy matrix; display the graph.
-        var task = new GraphData(Graph.ASS2009);
+        var task = new GraphData(Graph.AWS03_rand);
         var attackDefenceGraph = task.getAttackDefenceGraph();
         var AdjMat = task.getAdjacencyMatrix(attackDefenceGraph);
         var assetLossVec = task.getNodeAssetsLossValues();
@@ -70,7 +70,7 @@ public class PageRankV1WithMBMain {
                 for (var nod : nodeList) {
                     var edge = (type == 0) ? attackDefenceGraph[assetNode - 1][nod - 1] :
                             attackDefenceGraph[nod - 1][assetNode - 1];
-                    var currentAssetCutOfTotalBudget = budget * scores.get(assetNode - 1) / nodes.get(assetNode).values().size();
+                    var currentAssetCutOfTotalBudget = budget * scores.get(assetNode - 1) / nodes.get(assetNode).values().stream().flatMap(Collection::stream).toList().size();
                     edge.setInvest_D(edge.addSpareInvestFor_D(currentAssetCutOfTotalBudget));
                     budget -= currentAssetCutOfTotalBudget;
                 }
