@@ -16,7 +16,6 @@ public class PageRankV1WithNeighborsMain {
         var attackDefenceGraph = task.getAttackDefenceGraph();
         var AdjMat = task.getAdjacencyMatrix(attackDefenceGraph);
         var assetLossVec = task.getNodeAssetsLossValues();
-        // task.Display(AdjMat);
 
         // Generate paths by genetic algorithm from each entry node to each asset
         var concurrentAttackers = new ConcurrentAttack(AdjMat,
@@ -66,7 +65,7 @@ public class PageRankV1WithNeighborsMain {
                 for (var nod : nodeList) {
                     var edge = (type == 0) ? attackDefenceGraph[assetNode - 1][nod - 1] :
                             attackDefenceGraph[nod - 1][assetNode - 1];
-                    var currentAssetCutOfTotalBudget = budget * scores.get(assetNode - 1) / nodes.get(assetNode).values().size();
+                    var currentAssetCutOfTotalBudget = budget * scores.get(assetNode - 1) / nodes.get(assetNode).values().stream().flatMap(Collection::stream).toList().size();
                     edge.setInvest_D(edge.addSpareInvestFor_D(currentAssetCutOfTotalBudget));
                 }
                 // System.out.println(assetNode + "\t" + type + "\t" + allNeighbors.get(type));
