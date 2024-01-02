@@ -10,7 +10,7 @@ import GraphAnalysisAndDefense.org.PageRankV1;
 
 public class PageRankV1WithNeighborsMain {
     public static void main(String[] args) {
-        System.out.println("The performance of Page Rank and Markov Blanket ----------");
+        System.out.println("The performance of Page Rank and Neighbor Nodes ----------");
         // Select the test case or the graph; construct the defenders; construct the adjacensy matrix; display the graph.
         var task = new GraphData(Graph.AWS03_rand);
         var attackDefenceGraph = task.getAttackDefenceGraph();
