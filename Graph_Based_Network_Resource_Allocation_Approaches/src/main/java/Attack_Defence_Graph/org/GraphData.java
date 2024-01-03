@@ -153,4 +153,21 @@ public class GraphData {
         }
         return sumOfLoss;
     }
+    
+    /**
+     * This method is used to display the adjacency matrix of the investments
+     * @param AdjMat Return the adjacency matrix of the investments
+     */
+    public void DisplayTheAdjacencyMatrix(double[][] AdjMat) {
+        if (AdjMat == null) {
+            throw new IllegalArgumentException("The matrix of investments are null!");
+        }
+        System.out.println("The adjaceny matrix of the investments as weights:");
+        for (double[] vi : AdjMat) {
+            for (double vj : vi) {
+                System.out.print(Math.round(vj * 100) / 100.0 + "\t");
+            }
+            System.out.println();
+        }
+    }
 }
