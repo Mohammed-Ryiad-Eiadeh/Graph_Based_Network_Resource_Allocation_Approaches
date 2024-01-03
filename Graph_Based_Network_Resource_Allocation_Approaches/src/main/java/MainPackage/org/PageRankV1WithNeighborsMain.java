@@ -10,6 +10,9 @@ import GraphAnalysisAndDefense.org.PageRankV1;
 
 import java.util.Collection;
 
+/**
+ * This class is used as the main class for the resource allocation using PageRank
+ */
 public class PageRankV1WithNeighborsMain {
     public static void main(String[] args) {
         System.out.println("The performance of Page Rank and Neighbor Nodes ----------");
