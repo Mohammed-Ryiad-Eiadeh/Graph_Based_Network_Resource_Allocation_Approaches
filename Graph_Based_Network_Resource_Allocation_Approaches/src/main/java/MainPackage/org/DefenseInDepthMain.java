@@ -62,7 +62,7 @@ public class DefenseInDepthMain {
             }
         }
         // Update the adjacensy matrix
-        task.DisplayTheAdjacencyMatrix(AdjMat);
+        AdjMat = task.getAdjacencyMatrix(attackDefenceGraph);
         var costFunctionAfterAllocation = new CostFunction(AdjMat, assetLossVec);
         var CostsAfterAllocation = 0.0d;
         for (var asset : assets) {
