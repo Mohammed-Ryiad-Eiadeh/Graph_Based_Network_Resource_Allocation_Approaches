@@ -102,7 +102,7 @@ public class ConcurrentAttack {
                 allEntries.add(i + 1);
             }
         }
-        IntStream.rangeClosed(0, allEntries.size() - 1).forEach( i -> {
+        IntStream.rangeClosed(0, allEntries.size() - 1).parallel().forEach( i -> {
             for (Integer allAsset : allAssets) {
                 List<Integer> path = getPotentialAttackPath(allEntries.get(i), allAsset);
                 if (!path.isEmpty() && path.size() > 2) {
