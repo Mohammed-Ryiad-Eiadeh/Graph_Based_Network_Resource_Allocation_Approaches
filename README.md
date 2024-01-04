@@ -1,2 +1,2 @@
-# Graph_Based_Network_Resource_Allocation_Approaches
+# Graph_Based_Network_Resource_Allocation_Approaches_Through_Cyber_Attack_Graph
 Graph Theoritec Approaches Based Network Defence
