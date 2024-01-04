@@ -102,14 +102,16 @@ public class ConcurrentAttack {
                 allEntries.add(i + 1);
             }
         }
-        for (Integer allEntry : allEntries) {
+        IntStream.rangeClosed(0, allEntries.size() - 1).forEach( i -> {
             for (Integer allAsset : allAssets) {
-                List<Integer> path = getPotentialAttackPath(allEntry, allAsset);
+                List<Integer> path = getPotentialAttackPath(allEntries.get(i), allAsset);
                 if (!path.isEmpty() && path.size() > 2) {
-                    map.get(allAsset).add(path);
+                    synchronized (map) {
+                        map.get(allAsset).add(path);
+                    }
                 }
             }
-        }
+        });
         map.entrySet().removeIf(entry -> entry.getValue().isEmpty());
         return map;
     }
