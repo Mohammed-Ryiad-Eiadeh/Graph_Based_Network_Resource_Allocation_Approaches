@@ -126,7 +126,9 @@ public class PageRankV2 {
             else if (iter > 1) {
                 double sumOfSubtraction = 0d;
                 for (int key : oldRanks.keySet()) {
-                    sumOfSubtraction += Math.pow(oldRanks.get(key) - mapNodeToRank.get(key), 2);
+                    double oldRank = oldRanks.get(key);
+                    double newRank = mapNodeToRank.get(key);
+                    sumOfSubtraction += Math.pow(oldRank - newRank, 2);
                 }
                 double euclideanDist = Math.sqrt(sumOfSubtraction);
                 if (euclideanDist < epsilon) {
