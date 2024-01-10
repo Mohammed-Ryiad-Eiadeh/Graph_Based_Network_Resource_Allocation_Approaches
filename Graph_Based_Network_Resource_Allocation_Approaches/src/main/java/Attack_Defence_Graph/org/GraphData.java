@@ -115,7 +115,7 @@ public class GraphData {
      * @param data The adjacency matrix of the graph
      */
     public void Display(double[][] data) {
-        if (data == null) {
+       if (data == null) {
             throw new IllegalArgumentException("The matrix is null!");
         }
         SingleGraph visualizer = new SingleGraph("graph");
@@ -124,17 +124,20 @@ public class GraphData {
         for (int node = 0; node < data.length; node++) {
             for (int nod = 0; nod < data[0].length; nod++) {
                 if (data[node][nod] > 0) {
-                    visualizer.addEdge(String.valueOf(node + 1).
-                            concat((nod + 1) + ""), "Node : " + (node + 1), "Node : " + (nod + 1), false);
+                    String nodeI = node + 1 + "";
+                    String nodeJ = nod + 1 + "";
+                    visualizer.addNode(nodeI);
+                    visualizer.addNode(nodeJ);
+                    visualizer.addEdge(nodeI.concat(nodeJ), nodeI, nodeJ, true);
                 }
             }
         }
         visualizer.nodes().forEach(x -> x.setAttribute("label", x.getId()));
         List<Edge> listEdges = visualizer.edges().toList();
         for (Edge listEdge : listEdges) {
-            int edgeId = Integer.parseInt(listEdge.getNode0().getId().split(" ")[2]) - 1;
-            int nodeId = Integer.parseInt(listEdge.getNode1().getId().split(" ")[2]) - 1;
-            listEdge.setAttribute("label", (int) data[edgeId][nodeId]);
+            int edgeId = Integer.parseInt(listEdge.getNode0().getId().split("->")[0]) - 1;
+            int nodeId = Integer.parseInt(listEdge.getNode1().getId().split("->")[0]) - 1;
+            listEdge.setAttribute("label", data[edgeId][nodeId]);
         }
         System.setProperty("org.graphstream.ui", "swing");
         visualizer.display();
