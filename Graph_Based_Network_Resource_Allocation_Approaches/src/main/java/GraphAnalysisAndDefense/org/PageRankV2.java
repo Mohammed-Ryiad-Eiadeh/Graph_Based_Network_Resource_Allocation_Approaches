@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * This class is used to rank each asset node acording to a well-known algorith called Page Rank.
  * <pre>
- *     ours
+ *     ours (Mohammad & dr. Abdallah)
  * </pre>
  */
 public class PageRankV2 {
