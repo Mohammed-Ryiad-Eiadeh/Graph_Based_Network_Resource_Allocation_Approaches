@@ -94,7 +94,9 @@ public class PageRankV2 {
         HashMap<Integer, Double> mapNodeToRank = new HashMap<>();
         HashMap<Integer, Double> oldRanks = new HashMap<>();
         for (int i = 0; i < numberOfNodes; i++) {
-            mapNodeToRank.put(i + 1, 1.0 / numberOfNodes);
+           double initialRank = 1.0 / numberOfNodes;
+            mapNodeToRank.put(i + 1, initialRank);
+            rankOfEachIteration[i].add(initialRank);
         }
         for (int iter = 0; iter < maxIter; iter++) {
             for (int nod : mapNodeToRank.keySet()) {
