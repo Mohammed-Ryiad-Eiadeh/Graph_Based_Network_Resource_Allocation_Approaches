@@ -120,8 +120,12 @@ public class PageRankV2 {
                         double weight = adjMatrix[currentNode - 1][nod - 1];
                         double weightOfInDegreeEdges = Math.exp(-weight);
                         totalRank += switch (pr_denominatorType) {
-                            case sumOfOutEdgesWeights -> weightOfInDegreeEdges * mapNodeToRank.get(currentNode) / sumOfOutEdgesWeights;
-                            case numOfOutEdges -> weightOfInDegreeEdges * mapNodeToRank.get(currentNode) / numOfOutDegreeEdges;
+                            case sumOfOutEdgesWeights -> weightOfInDegreeEdges *
+                                    mapNodeToRank.get(currentNode) /
+                                    sumOfOutEdgesWeights;
+                            case numOfOutEdges -> weightOfInDegreeEdges *
+                                    mapNodeToRank.get(currentNode) /
+                                    numOfOutDegreeEdges;
                         };
                     }
                     totalRank = (1 - dampingFactor) / numberOfNodes + dampingFactor * totalRank;
