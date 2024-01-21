@@ -7,7 +7,7 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 import java.util.HashMap;
 
 /**
- * This class is used to rank each asset node acording to a well-known algorith called Page Rank.
+ * This class is used to rank each asset node acording to a well-known algorithm called PageRank.
  * <pre>
  *     The anatomy of a large-scale hypertextual Web search engine, Sergey Brin and Lawrence Page, 1998
  *     {J}{G}raph{T}--{A} {J}ava {L}ibrary for {G}raph {D}ata {S}tructures and {A}lgorithms, Michail et al, 2020
