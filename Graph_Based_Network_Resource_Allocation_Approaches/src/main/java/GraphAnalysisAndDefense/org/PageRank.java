@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class is used to rank each asset node acording to a well-known algorith called Page Rank.
+ * This class is used to rank each asset node acording to a well-known algorithm called PageRank.
  * <pre>
  *     ours (Mohammad & dr. Abdallah)
  * </pre>
