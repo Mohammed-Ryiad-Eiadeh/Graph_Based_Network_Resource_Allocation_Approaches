@@ -48,13 +48,36 @@ For our assessment, we used ten distinct attack graphs, each symbolizing a diffe
 | DER.1 [13] | 22 | 32 | 6 | Directed |
 | E-Commerce [14] | 20 | 32 | 4 | Directed |
 | VOIP [14] | 22 | 35 | 4 | Directed |
-| HG1 [15] | 7 | 10 | 2 | Bidirectional |
-| HG2 [15] | 15 | 22 | 5 | Bidirectional |
-| ABSNP [16] | 17 | 122 | 6 | Bidirectional |
-| ASFS3 [16] | 27 | 163 | 9 | Bidirectional |
-| ASS2009 [16] | 31 | 211 | 9 | Bidirectional |
-| AWS03 [16] | 42 | 152 | 15 | Bidirectional |
+| HG1 [15] | 7 | 10 | 2 | Directed |
+| HG2 [15] | 15 | 22 | 5 | Directed |
+| ABSNP [16] | 17 | 122 | 6 | Directed |
+| ASFS3 [16] | 27 | 163 | 9 | Directed |
+| ASS2009 [16] | 31 | 211 | 9 | Directed |
+| AWS03 [16] | 42 | 152 | 15 | Directed |
 
 Note: all of these datasets are stored in the project directory and is called dynamically so no need to set up their paths.
 
+# Parameter Configuration of Our Experiments
+
+We begin by detailing the primary hyperparameters utilized in various components of our framework. The parameters for the GA were selected as follows: maximum iterations ($M=500$), population size which refers to a set of potential attack paths ($N=2000$), mating probability ($m_p=0.2$), mutation rate ($m_r=0.2$), and weight factor ($Wf=0.001$). The defender's security security budgets is set at $S=5$ (unless otherwise stated for specific experiments), and the maximum iterations ($PR_{iter}$) for the PR algorithm is set at 100, with epsilon ($\epsilon$) set at 0.0001. We underscore that the benefits of our suggested defense (resource allocation) strategies are applicable for any given security budget. For the behavioral defender baseline~\cite{Abdallah2020}, we have set the behavioral level ($a$) at 0.5.
+
+# Comparison of AARA-PR and baseline systems on all datasets
+
+The row "Measurements" show the relative difference of the expected cost $CR$ for all defense scenarios. The larger $CR$, the better the defense method with significance level equals 0.05 for the Friedman test.
+
+| Dataset / System                      | Defense in Depth~\cite{lippmann2006validating} | Behavioral Defender~\cite{Abdallah2020} | Adjacent Nodes | In Degree Nodes | MB Nodes | PR (JGraphT) + MB Nodes | PR (JGraphT) + Adjacent Nodes | PR (JGraphT) + In-Degree Nodes | PRV1 + MB Nodes | PRV1 + Adjacent Nodes | PRV1 + In-Degree Nodes |
+|---------------------------------------|-----------------------------------------------|-----------------------------------------|----------------|-----------------|----------|--------------------------|--------------------------------|--------------------------------|-----------------|------------------------|-------------------------|
+| SCADA \cite{hota2016optimal}         | 22.12                                         | 22.12                                   | 29.70          | 36.53           | 24.95    | 28.51                    | 39.42                          | 44.49                          | 31.20           | 45.33                  | **49.61**               |
+| DER.1 \cite{jauhar2015model}         | 14.47                                         | 14.47                                   | 32.64          | 42.62           | 33.19    | 28.60                    | 41.39                          | 55.71                          | 29.76           | 43.16                  | **57.24**               |
+| E-Commerce \cite{modelo2008determining} | 14.47                                     | 14.47                                   | 42.62          | 42.62           | 42.62    | 36.58                    | **69.73**                      | **69.73**                      | 31.84           | 41.99                  | 41.99                   |
+| VOIP \cite{modelo2008determining}    | 13.31                                         | 13.31                                   | 46.47          | 46.47           | 46.47    | 40.63                    | **69.73**                      | **69.73**                      | 32.91           | 33.09                  | 46.75                   |
+| HG1 \cite{Zeng2019}                  | 39.35                                         | 39.35                                   | 64.68          | 56.54           | 54.41    | 45.85                    | 54.12                          | 56.32                          | 69.73           | **77.50**              | 63.19                   |
+| HG2 \cite{Zeng2019}                  | 20.33                                         | 20.33                                   | 32.18          | **42.62**       | 28.49    | 22.50                    | 27.59                          | 38.88                          | 19.13           | 21.89                  | 31.07                   |
+| ABSNP\cite{nr-aaai15}                | 1.50                                          | 1.50                                    | 2.13           | 3.93            | 2.78     | 4.84                     | 5.79                           | 5.79                           | 4.84            | **69.73**              | **69.73**               |
+| ASFS3\cite{nr-aaai15}                | 0.73                                          | 0.64                                    | 0.96           | **69.73**       | 1.42     | 1.03                     | 1.62                           | 1.85                           | 0.78            | 1.32                   | 1.38                    |
+| ASS2009\cite{nr-aaai15}              | 0.15                                          | 0.15                                    | 0.31           | 0.61            | 0.42     | 0.33                     | 0.44                           | 0.63                           | 0.64            | 0.76                   | **69.73**               |
+| AWS03\cite{nr-aaai15}                | 1.85                                          | 1.85                                    | 3.24           | **69.73**       | 3.98     | 3.70                     | 5                              | 5.36                           | 3.05            | 3.80                   | 4.10                    |
+| Rank First                            | 0                                             | 0                                       | 0              | 0               | 3        | 0                        | 0                              | 2                              | 2               | 2                      | **4**                   |
+| Sum of Rank                           | 16.5                                          | 15.5                                    | 57             | 82              | 60       | 44.5                     | 78.5                           | **92.5**                        | 48.5            | 76                     | 89                      |
+| Mean Rank                             | 1.65                                          | 1.55                                    | 5.70           | 8.20            | 6        | 4.45                     | 7.85                           | **9.25**                        | 4.85            | 7.60                   | 8.90                    |
 
