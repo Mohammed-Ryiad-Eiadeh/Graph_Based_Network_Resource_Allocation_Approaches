@@ -65,7 +65,7 @@ We begin by detailing the primary hyperparameters utilized in various components
 
 The row "Measurements" show the relative difference of the expected cost $CR$ for all defense scenarios. The larger $CR$, the better the defense method with significance level equals 0.05 for the Friedman test.
 
-Comparison of the proposed approaches and the two baseline algorithms over the used ten datasets under Friedman test with $SL=0.05$. Our proposed methods show superior performance. While ``PR (JGraphT) + In-Degree Nodes'' has the highest mean rank, yet ``PRV1 + In-Degree Nodes'' method is ranked first more often, making it a more reliable choice for diverse real-world datasets.
+Comparison of the proposed approaches and the two baseline algorithms over the used ten datasets under Friedman test with $SL=0.05$. Our proposed methods show superior performance. While PR (JGraphT) + In-Degree Nodes has the highest mean rank, yet PRV1 + In-Degree Nodes method is ranked first more often, making it a more reliable choice for diverse real-world datasets.
 
 | Dataset / System                      | Defense in Depth~\cite{lippmann2006validating} | Behavioral Defender~\cite{Abdallah2020} | Adjacent Nodes | In Degree Nodes | MB Nodes | PR (JGraphT) + MB Nodes | PR (JGraphT) + Adjacent Nodes | PR (JGraphT) + In-Degree Nodes | PRV1 + MB Nodes | PRV1 + Adjacent Nodes | PRV1 + In-Degree Nodes |
 |---------------------------------------|-----------------------------------------------|-----------------------------------------|----------------|-----------------|----------|--------------------------|--------------------------------|--------------------------------|-----------------|------------------------|-------------------------|
