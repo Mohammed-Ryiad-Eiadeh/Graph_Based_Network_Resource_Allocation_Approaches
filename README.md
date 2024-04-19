@@ -28,7 +28,7 @@ This function accounts for the total asset loss that the system will lose if the
 
 # Our Contribution
 
-1) We introduce a method for \textit{security resource allocation} for a defender of interdependent systems, where the assets she is protecting are interconnected. We illustrate the influence of \name on decision-making processes concerning system security, and we measure the percentage of enhancement that can be credited to our security resource allocation method.
+1) We introduce a method for security resource allocation for a defender of interdependent systems, where the assets she is protecting are interconnected. We illustrate the influence of \name on decision-making processes concerning system security, and we measure the percentage of enhancement that can be credited to our security resource allocation method.
 
 2) We suggest two variants of the PageRank algorithm for improving resource allocation decisions. One variant relies on the sum of the edge weights of the outgoing nodes, while the other depends on the count of the outgoing edges. These algorithms are used under three defense strategies based on adjacent nodes, in-degree nodes, and the Markov blanket. They are designed to counter various attack models that pose threats to the security of interdependent systems.
 
