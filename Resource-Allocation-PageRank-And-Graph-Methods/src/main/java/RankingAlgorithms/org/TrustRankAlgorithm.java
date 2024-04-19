@@ -60,7 +60,7 @@ public class TrustRankAlgorithm {
         // Create the inverseOutDegreeMatrix, a diagonal matrix with inverse out-degrees as values
         double[][] inverseOutDegreeMatrix = new double[adjMatrix.length][adjMatrix.length];
         for (int i = 0; i < adjMatrix.length; i++) {
-            inverseOutDegreeMatrix[i][i] = outDegreeMatrix[i] > 0 ? 1 / outDegreeMatrix[i] : 0.1;
+            inverseOutDegreeMatrix[i][i] = outDegreeMatrix[i] > 0 ? 1 / outDegreeMatrix[i] : /*Tolerance*/ 0.1;
         }
         // Transpose the adjacency matrix to compute the transpose matrix
         double[][] adjacentMatrixTranspose = new double[adjMatrix.length][adjMatrix.length];
