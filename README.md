@@ -8,7 +8,7 @@ Interdependent systems confront rapidly growing cybersecurity threats. This pape
 
 The figure depicts an attack graph consisting of entry nodes (used by attackers) and asset nodes (critical for defenders). Interconnections between these nodes represent security vulnerabilities. The Genetic Algorithm (GA) generates potential attack paths based on this graph. GA employs a path encoding criterion to prevent revisiting nodes and encodes sink nodes. A multi-objective fitness function evaluates feasible attack paths, considering asset loss. Defenders allocate security budget across attack paths, guided by graph theory concepts (in-degree nodes, adjacent nodes, Markov Blanket). The PageRank algorithm informs asset importance, aiding proportional security investments. Finally, relative reduction in expected security cost is computed for performance analysis.
 
-![PRFramework](https://github.com/user-attachments/assets/314894b7-cdb2-4a07-901a-d72c6a48a48e)
+![Screenshot (1)](https://github.com/user-attachments/assets/0d39009b-1602-47fa-974a-9a8fa34b9f3a)
 
 # Fitness Function
 
